@@ -1,2 +1,2 @@
-$LOAD_PATH << File.expand_path('../../../lib',_FILE)
+$LOAD_PATH << File.expand_path('../../../lib',__FILE__)
 require 'codebreaker'
