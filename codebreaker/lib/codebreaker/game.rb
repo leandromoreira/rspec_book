@@ -13,14 +13,24 @@ module Codebreaker
   end
 
   def guess(guess)
-   if guess[0] == @secret[0]
+   if exact_match?(guess, 0)
     mark = '+'
-   elsif @secret.include? guess[0]
+   elsif number_match?(guess, 0) 
     mark = '-'
    else
     mark = ''
    end
    @output.puts mark
+  end
+
+  private
+
+  def exact_match?(guess,index)
+   guess[index] == @secret[index]
+  end
+
+  def number_match?(guess,index)
+   @secret.include? guess[index]
   end
 
  end
