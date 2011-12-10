@@ -11,6 +11,9 @@ module Codebreaker
    @output.puts 'Enter guess:'
   end
 
+  def guess(guess)
+  end
+
  end
 
 end
