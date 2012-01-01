@@ -32,4 +32,13 @@ describe "test double" do
    mock.class.should == stub_object.class
   end
  end
+
+ context "#double" do
+
+  it "stubs methods when required" do
+   car = double('car')
+   car.stub(:name).and_return('Ferrari')
+   car.name.should == 'Ferrari'
+  end
+ end
 end
