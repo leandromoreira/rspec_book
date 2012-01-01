@@ -40,5 +40,11 @@ describe "test double" do
    car.stub(:name).and_return('Ferrari')
    car.name.should == 'Ferrari'
   end
+
+  it "set the obligation of being executed" do
+   ring = double('ring')
+   ring.should_receive(:take).and_return('my precious')
+   ring.take.should == 'my precious'
+  end
  end
 end
