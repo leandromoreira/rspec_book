@@ -18,5 +18,6 @@ end
 #this is CONSICE
 
 describe Magazine do
+ it { should have(100).pages }
  it { should be_published }
 end
