@@ -46,5 +46,11 @@ describe "test double" do
    ring.should_receive(:take).and_return('my precious')
    ring.take.should == 'my precious'
   end
+
+  it "works with methods which accepts parameters" do
+   mozart = double('mozart')
+   mozart.should_receive(:play).with(:classic).and_return(true)
+   mozart.play(:classic).should be_true 
+  end
  end
 end
