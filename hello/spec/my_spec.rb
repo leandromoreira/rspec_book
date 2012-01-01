@@ -21,3 +21,15 @@ describe Magazine do
  it { should have(100).pages }
  it { should be_published }
 end
+
+describe "test double" do
+ context "#double, #stub and #mock" do
+  it "returns an instance of RSpec::Mocks::Mock" do
+   double_object = double('object')
+   mock_object = mock('object')
+   stub_object = stub('object')
+   double_object.class.should == mock.class
+   mock.class.should == stub_object.class
+  end
+ end
+end
