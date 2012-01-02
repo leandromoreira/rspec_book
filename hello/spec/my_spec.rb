@@ -57,5 +57,15 @@ describe "test double" do
    customer = double('customer', :name => 'Peter Griffin', :buyer_level => 100)
    customer.buyer_level.should == 100 
   end
+
+  it "enables us to provide a block method version" do
+   zelda = double('zelda')
+
+   zelda.stub(:play) do |coins|
+    throw Error unless coins > 1
+   end
+
+   lambda{ zelda.start }.should raise_error
+  end
  end
 end
