@@ -84,6 +84,14 @@ describe "test double" do
 
    Article.recent.published.authored_by(1).date.should == "11/25/2009"
   end
+
+  it "turns really easy the deep stubs" do
+   article = double('article')
+   article.stub(:date).and_return('11/25/2009')
+   Article.stub_chain(:recent, :published, :authored_by).and_return(article)
+
+   Article.recent.published.authored_by(1).date.should == "11/25/2009"
+  end
  end
 
 end
