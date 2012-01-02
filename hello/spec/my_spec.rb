@@ -8,6 +8,9 @@ class Magazine
  end
 end
 
+class Article
+end
+
 describe "An amazing rspec solution to tests" do
  it "works" do
   linux = Magazine.new
@@ -68,4 +71,19 @@ describe "test double" do
    lambda{ zelda.start }.should raise_error
   end
  end
+
+ describe Article  do
+  it "turns easy the deep stubs" do
+   recent = double()
+   published = double()
+   article = double('article')
+   Article.stub(:recent).and_return(recent)
+   recent.stub(:published).and_return(published)
+   published.stub(:authored_by).with(1).and_return(article)
+   article.stub(:date).and_return("11/25/2009")
+
+   Article.recent.published.authored_by(1).date.should == "11/25/2009"
+  end
+ end
+
 end
