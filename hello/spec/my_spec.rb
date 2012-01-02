@@ -52,5 +52,10 @@ describe "test double" do
    mozart.should_receive(:play).with(:classic).and_return(true)
    mozart.play(:classic).should be_true 
   end
+
+  it "provides us shortcuts to faster stubs" do
+   customer = double('customer', :name => 'Peter Griffin', :buyer_level => 100)
+   customer.buyer_level.should == 100 
+  end
  end
 end
