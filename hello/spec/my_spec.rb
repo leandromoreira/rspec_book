@@ -118,6 +118,12 @@ describe "test double" do
    gpu.process :x => 123, :y => 400
    gpu.process nil, 0xFF, "gpu"
   end
+
+  it "helps a lot when writting mock/stub" do
+   cpu = double('cpu', :name => 6502, :pc => 0xFFFF, :sp => 0)
+   cpu.pc.should == 0xFFFF
+   cpu.sp.should == 0
+  end
  end
 
 end
