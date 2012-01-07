@@ -104,6 +104,20 @@ describe "test double" do
    account.transfer(targe_account, 140)
   end
 
+  it "anything() can help you write your test code" do
+   cpu = double('cpu')
+   memory = double('memory')
+   cpu.should_receive(:execute).exactly(2).times.with(anything(),0xFF)
+   cpu.execute(memory, 0xff)
+   cpu.execute(nil, 0xff)
+  end
+
+  it "any_args() will act like one I don't care for args" do
+   gpu = double('gpu')
+   gpu.should_receive(:process).twice.with(any_args())
+   gpu.process :x => 123, :y => 400
+   gpu.process nil, 0xFF, "gpu"
+  end
  end
 
 end
