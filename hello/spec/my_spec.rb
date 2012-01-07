@@ -94,4 +94,16 @@ describe "test double" do
   end
  end
 
+ describe "expectations" do
+
+  it "accept any kind of Fixnum input" do
+   account = double('Account')
+   targe_account = double('Account2')
+   account.should_receive(:transfer).at_least(2).times.with(targe_account, instance_of(Fixnum))
+   account.transfer(targe_account, 40)
+   account.transfer(targe_account, 140)
+  end
+
+ end
+
 end
